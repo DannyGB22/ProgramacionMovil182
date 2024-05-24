@@ -20,33 +20,33 @@ console.log('Hola Mundo')
 //
 
 // function fat Arrow simplificada
-const suma=(a, b)=> a+b
+// const suma=(a, b)=> a+b
 
 
-const usuario = {
-    nombre: "Daniel",
-    Apellido: "Galvan",
-    edad: 22,
+// const usuario = {
+//     nombre: "Daniel",
+//     Apellido: "Galvan",
+//     edad: 22,
 
-    Direccion:{
-        pais: 'Mexico', ciudad:'Queretaro', calle:'La misma 123'
-    },
+//     Direccion:{
+//         pais: 'Mexico', ciudad:'Queretaro', calle:'La misma 123'
+//     },
 
-    amigos: ['Alex', 'Carlos'],
-    estatus: true,
-    enviaCorreo: enviaCorr=()=>'enviado...'
+//     amigos: ['Alex', 'Carlos'],
+//     estatus: true,
+//     enviaCorreo: enviaCorr=()=>'enviado...'
 
-}
+// }
 
 // imprimimos los datos del objeto
-console.log(usuario)
+// console.log(usuario)
 
-console.log(usuario.Direccion.ciudad)
+// console.log(usuario.Direccion.ciudad)
 
-console.log(usuario.amigos)
+// console.log(usuario.amigos)
 
-// Metodos
-console.log(usuario.enviaCorreo())
+//  Metodos
+// console.log(usuario.enviaCorreo())
 
 
 
@@ -67,4 +67,69 @@ boton.addEventListener('click', function () {
 
 
 
+// Trabajo con arreglos
+
+// const nombres = ['Alan', 'Isa','Pablo', 'Juan Luis']
+
+// for (let i = 0 ; i< nombres.length; i++){
+//     const elemento = nombres[i]
+//     console.log(elemento)
+
+// }
+
+
+// nombres.forEach(function (nombre){
+//     console.log(nombre)
+// })
+
+// const nombres = ['Alan', 'Isa','Pablo', 'Juan Luis']
+
+// const array2 = nombres.map(function (nombre){
+//     console.log(nombre)
+//     return nombre
+// })
+
+// console.log(nombres)
+// console.log(array2)
+
+
+// Funcion  Find: Ubicar Elemntos en un arreglo
+
+// const resultado = nombres.find(function (nombre){
+//     if(nombre === 'Pablo'){
+//         return nombre
+//     }
+// })
+
+// console.log(resultado)
+
+
+// Funcion Filter: recorre el Arreglo filtrando un resultado en otro
+
+// const resultado = nombres.filter(function (nombre){
+//     if(nombre != 'Pablo'){
+//         return nombre
+//     }
+// })
+// console.log(nombres)
+// console.log(resultado)
+
+
+// Funcion concat: 
+
+// const edades = [22, 17, 19, 24, 15, 33]
+
+// console.log(nombres.concat(edades))
+
+// spread Operator
+// console.log([...nombres,...edades])
+
+
+// Modulos: Import & Export
+
+import {suma, resta} from "./calculadora.js"
+import * as calc from "./calculadora.js"
+
+console.log(suma(22,22))
+console.log(resta(22,9))
 

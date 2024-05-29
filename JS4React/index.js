@@ -1,4 +1,4 @@
-console.log('Hola Mundo')
+// console.log('Hola Mundo')
 
 
 // function suma(a, b){
@@ -51,19 +51,19 @@ console.log('Hola Mundo')
 
 
 // Trabajo con el DOM
-const titulo = document.createElement('h1')
-titulo.innerText = 'Soy un titulo creado con JS'
-document.body.append(titulo)
+// const titulo = document.createElement('h1')
+// titulo.innerText = 'Soy un titulo creado con JS'
+// document.body.append(titulo)
 
-const boton = document.createElement('button')
-boton.innerText = 'Presione'
-document.body.append(boton)
+// const boton = document.createElement('button')
+// boton.innerText = 'Presione'
+// document.body.append(boton)
 
-boton.addEventListener('click', function () {
+// boton.addEventListener('click', function () {
     //console.log('Evento click ejecutando')
-    titulo.innerText= 'Evento click ejecutando'
-    alert('Exito')
-})
+//     titulo.innerText= 'Evento click ejecutando'
+//     alert('Exito')
+// })
 
 
 
@@ -127,9 +127,55 @@ boton.addEventListener('click', function () {
 
 // Modulos: Import & Export
 
-import {suma, resta} from "./calculadora.js"
-import * as calc from "./calculadora.js"
+// import {suma, resta} from "./calculadora.js"
+// import * as calc from "./calculadora.js"
 
-console.log(suma(22,22))
-console.log(resta(22,9))
+// console.log(suma(22,22))
+// console.log(resta(22,9))
 
+
+// Ejemplo de una promesa
+
+// const ul = document.createElement('ul')
+
+// fetch('https://jsonplaceholder.typicode.com/albums')
+//     .then(function (response){
+//         console.log('Carga de datos completada')
+//         return response.json()
+//     }).then(function (data){
+//         console.log(data)
+        // data.forEach( function (post){
+        //     const li = document.createElement('li')
+        //     li.innerHTML = post.title
+        //     ul.append(li)
+
+        // })
+//         document.body.append(ul)
+//     })
+
+// console.log(datos)
+
+
+
+// Ejemplo con async await
+
+const ul = document.createElement('ul')
+async function cargarDatos(){
+
+    const response = await fetch('https://jsonplaceholder.typicode.com/albums')
+    const datos = await response.json()
+    console.log(datos)
+    datos.forEach( function (post){
+        const li = document.createElement('li')
+        li.innerHTML = post.title
+        ul.append(li)
+
+    })
+    document.body.append(ul)
+}
+
+cargarDatos()
+
+console.log('Cargando HTML')
+console.log('Cargando CSS')
+console.log('Cargando Imagenes')

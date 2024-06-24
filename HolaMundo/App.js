@@ -1,115 +1,65 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View, TextInput, TouchableHighlight, TouchableOpacity, TouchableWithoutFeedback, ScrollView, Dimensions } from 'react-native';
-import React, { useState } from 'react';
+import {StyleSheet, Text, View, FlatList} from 'react-native';
+// import React, { useState } from 'react';
 
 export default function App() {
-  const [text, setText] = useState('Valor Default');
-  const [submit, setSubmit] = useState('');
 
   return (
     <View style={styles.container}>
 
-      <ScrollView style={styles.scrollView}>
-
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
-      <Text> Componente TextInput: {submit} </Text>
+      <FlatList 
+      data={[
+      {key:1,name:'Daniel'},
+      {key:2,name:'Jean'},
+      {key:3,name:'Carlo'},
+      {key:4,name:'Alex'},
+      {key:5,name:'Joseph'},
+      {key:6,name:'Deniss'},
+      {key:7,name:'Tania'},
+      {key:8,name:'Tania'},
+      {key:9,name:'Tania'},
+      {key:10,name:'Tania'},
+      {key:11,name:'Tania'},
+      {key:12,name:'Tania'},
+      {key:13,name:'Tania'},
+      {key:14,name:'Tania'},
+      {key:15,name:'Tania'},
+      {key:16,name:'Tania'},
+      {key:17,name:'Tania'},
+      {key:18,name:'Tania'},
+      {key:19,name:'Tania'},
+      {key:20,name:'Tania'},
+      {key:21,name:'Tania'},
+      {key:22,name:'Tania'},
       
-      <TextInput style={styles.input} placeholder="Creacion de input" onChangeText={(t) => setText(t)} value={text}/>
-
-      <Button title="Presioname"onPress={() =>{setSubmit(text); alert("Texto enviado");}}/>
-
-      <TouchableHighlight style={styles.touchableHighlight} underlayColor="blue" onPress={() => alert("TouchableHighlight presionado")}>
-        <Text style={styles.touchableText}>TouchableHighlight</Text>
-      </TouchableHighlight>
-
-      <TouchableOpacity style={styles.touchableOpacity} onPress={() => alert("TouchableOpacity presionado")}>
-        <Text style={styles.touchableText}>TouchableOpacity</Text>
-      </TouchableOpacity>
-
-      <TouchableWithoutFeedback onPress={() => alert("TouchableWithoutFeedback presionado")}>
-        <View style={styles.touchableWithoutFeedback}> 
-          <Text style={styles.touchableText}>TouchableWithoutFeedback</Text>
-        </View>
-      </TouchableWithoutFeedback>
-
-      </ScrollView>
       
-
+    ]}
+  
+       renderItem={({item})=><Text style={styles.item}>{item.name}</Text>} >
+      
+      </FlatList>
+      
       <StatusBar style="auto" />
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
     backgroundColor: '#fff',
-    alignItems: 'center',
+    alignItems: 'stretch',
     justifyContent: 'center',
-  },
-  input: {
-    height: 40,
-    width: 200,
-    margin: 22,
-    borderWidth: 4,
-    borderColor: 'blue',
-    padding: 10,
-    borderRadius: 45,
-    textAlign: 'center',
-  },
-  touchableHighlight: {
-    backgroundColor: 'red',
-    padding: 10,
-    margin: 10,
-    borderRadius: 10,
-  },
-  touchableOpacity: {
-    backgroundColor: 'green',
-    padding: 10,
-    margin: 10,
-    borderRadius: 10,
-  },
-  touchableWithoutFeedback: {
-    backgroundColor: 'purple',
-    padding: 10,
-    margin: 10,
-    borderRadius: 10,
-  },
-  touchableText: {
-    color: 'white',
+    paddingTop:40,
   },
 
-  scrollView:{
-    width:Dimensions.get('window').width,
+  item:{
+    padding:10,
+    fontSize:22,
+    height:44,
+    borderColor:'blue',
+    borderBottomWidth:1,
+
+
   },
 });

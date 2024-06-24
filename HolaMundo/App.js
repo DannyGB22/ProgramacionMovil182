@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View, TextInput, TouchableHighlight, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { Button, StyleSheet, Text, View, TextInput, TouchableHighlight, TouchableOpacity, TouchableWithoutFeedback, ScrollView, Dimensions } from 'react-native';
 import React, { useState } from 'react';
 
 export default function App() {
@@ -8,6 +8,39 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+
+      <ScrollView style={styles.scrollView}>
+
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
+      <Text> Componente TextInput: {submit} </Text>
       <Text> Componente TextInput: {submit} </Text>
       
       <TextInput style={styles.input} placeholder="Creacion de input" onChangeText={(t) => setText(t)} value={text}/>
@@ -27,6 +60,9 @@ export default function App() {
           <Text style={styles.touchableText}>TouchableWithoutFeedback</Text>
         </View>
       </TouchableWithoutFeedback>
+
+      </ScrollView>
+      
 
       <StatusBar style="auto" />
     </View>
@@ -71,5 +107,9 @@ const styles = StyleSheet.create({
   },
   touchableText: {
     color: 'white',
+  },
+
+  scrollView:{
+    width:Dimensions.get('window').width,
   },
 });

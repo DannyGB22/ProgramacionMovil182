@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import {StyleSheet, Text, View, FlatList} from 'react-native';
+import {StyleSheet, Text, View, FlatList, SectionList} from 'react-native';
 // import React, { useState } from 'react';
 
 export default function App() {
@@ -7,37 +7,53 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-      <FlatList 
-      data={[
-      {key:1,name:'Daniel'},
-      {key:2,name:'Jean'},
-      {key:3,name:'Carlo'},
-      {key:4,name:'Alex'},
-      {key:5,name:'Joseph'},
-      {key:6,name:'Deniss'},
-      {key:7,name:'Tania'},
-      {key:8,name:'Tania'},
-      {key:9,name:'Tania'},
-      {key:10,name:'Tania'},
-      {key:11,name:'Tania'},
-      {key:12,name:'Tania'},
-      {key:13,name:'Tania'},
-      {key:14,name:'Tania'},
-      {key:15,name:'Tania'},
-      {key:16,name:'Tania'},
-      {key:17,name:'Tania'},
-      {key:18,name:'Tania'},
-      {key:19,name:'Tania'},
-      {key:20,name:'Tania'},
-      {key:21,name:'Tania'},
-      {key:22,name:'Tania'},
+      <SectionList
+      sections={[
+        { title:'Grupo A',
+          data:[
+              {key:1,name:'Daniel'},
+              {key:2,name:'Jean'},
+              {key:3,name:'Carlo'},
+              {key:4,name:'Alex'},
+              {key:5,name:'Joseph'},
+              {key:6,name:'Deniss'},
+              {key:7,name:'Tania'},
+              
+            
+          ]
+        },
+        { title:'Grupo B',
+          data:[
+              {key:1,name:'Daniel'},
+              {key:2,name:'Jean'},
+              {key:3,name:'Carlo'},
+              {key:4,name:'Alex'},
+              {key:5,name:'Joseph'},
+              {key:6,name:'Deniss'},
+              {key:7,name:'Tania'},
+              
+            
+          ]
+        },
+        { title:'Grupo C',
+          data:[
+              {key:1,name:'Daniel'},
+              {key:2,name:'Jean'},
+              {key:3,name:'Carlo'},
+              {key:4,name:'Alex'},
+              {key:5,name:'Joseph'},
+              {key:6,name:'Deniss'},
+              {key:7,name:'Tania'},
+              
+            
+          ]
+        }
+      ]} 
+      renderItem= { ({item})=> <Text style={styles.item}>{item.name}</Text>}
+      renderSectionHeader= { ({section})=> <Text style={styles.section}>{section.title}</Text>}
+     />
       
       
-    ]}
-  
-       renderItem={({item})=><Text style={styles.item}>{item.name}</Text>} >
-      
-      </FlatList>
       
       <StatusBar style="auto" />
     </View>
@@ -59,7 +75,13 @@ const styles = StyleSheet.create({
     height:44,
     borderColor:'blue',
     borderBottomWidth:1,
-
+  },
+  section:{
+    fontSize:22,
+    fontWeight:'bold',
+    backgroundColor:'blue',
+    paddingTop:4,
+    paddingBottom:4,
 
   },
 });

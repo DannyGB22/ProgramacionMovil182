@@ -1,58 +1,37 @@
 import { StatusBar } from 'expo-status-bar';
-import {StyleSheet, Text, View, FlatList, SectionList} from 'react-native';
-// import React, { useState } from 'react';
+import {StyleSheet, Text, View, FlatList, ActivityIndicator} from 'react-native';
+import React, { useState, useEffect } from 'react';
 
 export default function App() {
+
+  const [user, setUser]= useState([])
+  const [loading, setLoading] = useState([true])
+
+  useEffect(()=>{
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(data =>{setUser(data), setLoading(false)})
+  },[])
+
+  if(loading){
+    return <View style={styles.center}>
+      <ActivityIndicator size='large' color='blue'/>
+      <Text>Cargando</Text>
+    </View>
+  }
+
 
   return (
     <View style={styles.container}>
 
-      <SectionList
-      sections={[
-        { title:'Grupo A',
-          data:[
-              {key:1,name:'Daniel'},
-              {key:2,name:'Jean'},
-              {key:3,name:'Carlo'},
-              {key:4,name:'Alex'},
-              {key:5,name:'Joseph'},
-              {key:6,name:'Deniss'},
-              {key:7,name:'Tania'},
-              
-            
-          ]
-        },
-        { title:'Grupo B',
-          data:[
-              {key:1,name:'Daniel'},
-              {key:2,name:'Jean'},
-              {key:3,name:'Carlo'},
-              {key:4,name:'Alex'},
-              {key:5,name:'Joseph'},
-              {key:6,name:'Deniss'},
-              {key:7,name:'Tania'},
-              
-            
-          ]
-        },
-        { title:'Grupo C',
-          data:[
-              {key:1,name:'Daniel'},
-              {key:2,name:'Jean'},
-              {key:3,name:'Carlo'},
-              {key:4,name:'Alex'},
-              {key:5,name:'Joseph'},
-              {key:6,name:'Deniss'},
-              {key:7,name:'Tania'},
-              
-            
-          ]
-        }
-      ]} 
-      renderItem= { ({item})=> <Text style={styles.item}>{item.name}</Text>}
-      renderSectionHeader= { ({section})=> <Text style={styles.section}>{section.title}</Text>}
-     />
-      
+      <Text>Usuarios Cargados</Text>
+
+      <FlatList 
+      data={user}
+
+      renderItem={({item})=><Text style={styles.item}>{item.name} {item.address.city}</Text>}>
+
+     </FlatList>
       
       
       <StatusBar style="auto" />
@@ -76,12 +55,10 @@ const styles = StyleSheet.create({
     borderColor:'blue',
     borderBottomWidth:1,
   },
-  section:{
-    fontSize:22,
-    fontWeight:'bold',
-    backgroundColor:'blue',
-    paddingTop:4,
-    paddingBottom:4,
+  center:{
+   flex:1,
+   alignItems:'center',
+   justifyContent:'center',
 
   },
 });

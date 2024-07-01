@@ -38,7 +38,7 @@ export default function App() {
     );
 
     if (results.length === 0) {
-      alert('No existen coincidencias en la lista');
+      Alert.alert('Sin resultados','No existen coincidencias en la lista');
     } else {
       setFiltrarData(results);
     }
